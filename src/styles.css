@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+   
+  }
+
+  
+  .main-main {
+    padding-top: 3.75rem;
+  }
+  
+
+ 
+ /*  .toggle-button {
+    display: none; 
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    vertical-align: middle;
+  }
+  
+  .toggle-button:hover span {
+    background-color: white;
+  }
+  
+  .toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: black;
+    display: block;
+    margin: 0.4rem 0;
+  }
+   */
