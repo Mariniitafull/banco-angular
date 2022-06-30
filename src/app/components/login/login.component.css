@@ -42,14 +42,27 @@
   font-weight: bold;
 }
 
+.login-mensaje{
+  background-color: #ff5454;
+  color: white;
+  text-align: center;
+  padding:8px;
+  border-radius: 20px;
+}
+
 .login-form label,
 .login-form input,
-.login-button {
+.login-button,
+.login-mensaje {
   display: block;
   margin-top: 1.56rem;
   width: 100%;
 }
 
+.login-mensaje-oculto{
+  display: none;
+  
+}
 .main-login__title {
   text-align: center;
   color: #ff5454;

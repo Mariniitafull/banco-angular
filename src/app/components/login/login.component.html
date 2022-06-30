@@ -1,24 +1,32 @@
 <main class="main-main">
 
-    <h1 class="main-login__title">Iniciar sesión Gestor</h1>
+  <h1 class="main-login__title">Iniciar sesión Gestor</h1>
 
-    <div class="login-form" >
+  <div class="login-form">
 
-      <label for="usuario">Usuario</label>
-      <input  #usuarioInput type="text" name="usuario" id="usuario">
+    <label for="usuario">Usuario</label>
+    <input #usuarioInput type="text" name="usuario" id="usuario">
 
-      <label for="password">Password</label>
-      <input #passwordInput type="text" name="password" id="password">
+    <label for="password">Password</label>
+    <input
+      (keyup)="loginGestorEnter($event, usuarioInput, passwordInput)"
+      #passwordInput
+      type="password"
+      name="password"
+      id="password">
 
-      <button 
+    <button
       class="login-button"
-      (click)="loginGestor(usuarioInput, passwordInput)"
-      >Entrar
-
+      (click)="loginGestor(usuarioInput, passwordInput)">
+      Entrar
     </button>
 
-    </div>
-    
-  </main>
+    <span
+      [class.login-mensaje-oculto]="!estaAutenticado"
+      class="login-mensaje">
+      Autenticación incorrecta
+    </span>
 
-  
+  </div>
+
+</main>

@@ -1,0 +1,34 @@
+<main class="main-main">
+
+    <h1 class="main-login__title">Iniciar sesión Cliente</h1>
+  
+    <div class="login-form">
+  
+      <label for="usuario">Usuario</label>
+      <input #usuarioInput type="text" name="usuario" id="usuario">
+  
+      <label for="password">Password</label>
+      <input
+      (keyup)="loginClienteEnter($event, usuarioInput, passwordInput)"
+      #passwordInput
+      type="password"
+      name="password"
+      id="password">
+  
+      <button
+        class="login-button"
+        (click)="loginCliente(usuarioInput, passwordInput)">
+        Entrar
+      </button>
+  
+      <span
+        [class.login-mensaje-oculto]="!estaAutenticado"
+        class="login-mensaje">
+        Autenticación incorrecta
+      </span>
+  
+    </div>
+  
+  </main>
+  
+  
