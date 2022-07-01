@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { MensajeChat } from '../modelos/mensaje-chat';
 import { esJSON } from '../utilidades/tipos';
@@ -36,6 +35,6 @@ export class ChatService {
   }
 
   enviar(mensajeChat: MensajeChat) {
-    this.ws.send(JSON.stringify(mensajeChat));//de objeto a string=stringify
+    this.ws.send(JSON.stringify(mensajeChat));
   }
 }

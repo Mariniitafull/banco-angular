@@ -43,7 +43,7 @@ export class ChatComponent implements OnInit {
     }
 
     const mensajeChat: MensajeChat = {
-      usuario: 'Marina ',
+      usuario: 'Marina',
       mensaje,
     }
 
@@ -52,7 +52,7 @@ export class ChatComponent implements OnInit {
     mensajeInput.value = ''; // borra el contenido el input del mensaje
   }
 
-  onEnviarMensaje(
+  onEnviarMensajeEnter(
     event: KeyboardEvent,
     mensajeInput: HTMLInputElement
   ) {

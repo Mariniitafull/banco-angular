@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { TiempoService } from '../../services/tiempo.service';
+import { CriptomonedaService } from '../../services/criptomoneda.service';
+import { AuthService } from '../../services/auth.service';
 import { obtenerLocalizacion } from 'src/app/utilidades/geolocalización';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +13,33 @@ import { obtenerLocalizacion } from 'src/app/utilidades/geolocalización';
 })
 export class HeaderComponent implements OnInit {
 
+  estaGestorAutenticado: boolean = false;
+  estaClienteAutenticado: boolean = false;
+
   reloj!: string;
   minutosRestantes!: number;
+  temperatura!: number;
+  ciudad!: string;
+  precioBitcoin!: number;
 
-  constructor() { }
+  constructor(
+    private tiempoService: TiempoService,
+    private criptomonedaService: CriptomonedaService,
+    private authService: AuthService,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
 
+    this.estaGestorAutenticado = this.authService.estaAutenticadoGestor();
+    this.authService.cambiosAutenticacionGestor.subscribe(autenticado => {
+      this.estaGestorAutenticado = autenticado;
+    })
+
     this.actualizarReloj();
     this.actualizarMinutosRestantes();
-    this.actualizarTemperatura(); //no se mete en el metodo de setInterval
+    this.actualizarTemperatura();
+    this.actualizarPrecioBitcoin();
 
     // el callback se ejecuta cada segundo
     setInterval(() => {
@@ -56,8 +78,21 @@ export class HeaderComponent implements OnInit {
   }
 
   actualizarTemperatura() {
-    obtenerLocalizacion((latitud: number, longitud: number) => {
-      console.log(latitud, longitud);
-    })
+    obtenerLocalizacion(async (latitud: number, longitud: number) => {
+      const datos = await this.tiempoService.obtenerTiempo(longitud, latitud);
+      this.temperatura = datos.data[0].temp;
+      this.ciudad = datos.data[0].city_name;
+    });
+  }
+
+  actualizarPrecioBitcoin() {
+    this.criptomonedaService.obtenerPrecioBitcoin((precioBitcoin: number) => {
+      this.precioBitcoin = precioBitcoin;
+    });
+  }
+
+  onLogout() {
+    this.authService.desautenticado();
+    this.router.navigate(['login', 'gestor']);
   }
 }

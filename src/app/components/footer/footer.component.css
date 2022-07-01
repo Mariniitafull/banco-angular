@@ -6,6 +6,7 @@
     text-align: center;
     bottom: 0;
     width: 100%;
+    z-index:-1;
   }
   
   .main-footer__enlaces {
@@ -30,6 +31,8 @@
     color: red;
     font-size: 0.75rem;
     text-decoration: none;
-  }.main-footer {  
-    width: calc(100% - 15em);
   }
+
+  /* .main-footer {  
+    width: calc(100% - 15em);
+  } */
