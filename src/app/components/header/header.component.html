@@ -8,6 +8,12 @@
     {{reloj}} ({{minutosRestantes}}) ({{temperatura}}ºC - {{ciudad}}) -
     (BTC={{precioBitcoin}}$)
   </span>
+  <span
+  *ngIf="estaGestorAutenticado || estaClienteAutenticado"
+  class="main-header__usuario"> ({{obtenerUsuarioAutenticado()}})
+  </span>
+
+ 
 
   <nav class="main-nav">
 
@@ -15,18 +21,18 @@
 
       <!-- Clientes -->
       <li *ngIf="estaGestorAutenticado" class="main-nav__item">
-        <a routerLink="clientes">Clientes</a>
+        <a routerLink="clientes">♟Clientes</a>
       </li>
 
       <!-- Gestores -->
       <li *ngIf="estaGestorAutenticado" class="main-nav__item">
-        <a routerLink="gestores">Gestores</a>
+        <a routerLink="gestores">👨‍💼Gestores</a>
       </li>
 
-      <!-- Mensajes -->
-      <li *ngIf="estaGestorAutenticado" class="main-nav__item">
-        <a class="main-nav__item_mensajes" href="mensajes.html">Mensajes</a>
-      </li>
+     <!-- Mensajes -->
+     <li *ngIf="estaGestorAutenticado" class="main-nav__item">
+      <a class="main-nav__item_mensajes" routerLink="mensajes">Mensajes</a>
+    </li>
 
       <!-- Botón logout -->
       <li *ngIf="estaGestorAutenticado || estaClienteAutenticado" class="main-nav__item main-nav__item_logout">

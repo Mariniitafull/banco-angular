@@ -1,3 +1,4 @@
+import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { NoencontradoComponent } from './components/noencontrado/noencontrado.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,8 +16,9 @@ const routes: Routes = [
   { path: 'login/cliente', component: LoginClienteComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'gestores', component: GestoresComponent },
+  { path: 'mensajes', component: MensajesComponent },
 
-  /* ruta 404 */
+  /* ruta 404 , siempre esta ruta al final*/
   { path: '**', component: NoencontradoComponent, pathMatch: 'full' }
 ];
 

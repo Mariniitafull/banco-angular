@@ -47,6 +47,9 @@ export class HeaderComponent implements OnInit {
       this.actualizarMinutosRestantes();
     }, 1000);
   }
+  obtenerUsuarioAutenticado(): string | null {
+    return localStorage.getItem('usuario');
+  }
 
   actualizarReloj() {
     const fechaActual = new Date();
@@ -95,4 +98,5 @@ export class HeaderComponent implements OnInit {
     this.authService.desautenticado();
     this.router.navigate(['login', 'gestor']);
   }
+
 }

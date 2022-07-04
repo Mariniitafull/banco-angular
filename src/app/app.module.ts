@@ -10,6 +10,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { LoginClienteComponent } from './components/login-cliente/login-cliente.component';
 import { NoencontradoComponent } from './components/noencontrado/noencontrado.component';
 import { GestoresComponent } from './components/gestores/gestores.component';
+import { MensajesComponent } from './components/mensajes/mensajes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GestoresComponent } from './components/gestores/gestores.component';
     ChatComponent,
     LoginClienteComponent,
     NoencontradoComponent,
-    GestoresComponent
+    GestoresComponent,
+    MensajesComponent
   ],
   imports: [
     BrowserModule,
